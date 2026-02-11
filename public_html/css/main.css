@@ -127,6 +127,45 @@ Header
 }
 
 /**
+Logo
+*/
+.tp-logo {
+  display: inline-flex;
+  flex-direction: row;
+  font-weight: bold;
+}
+
+.tp-logo-20 {
+  padding-right: 0.25em;
+}
+
+.tp-logo-1 {
+  text-transform: uppercase;
+  color: var(--tp-color-danger-icon);
+}
+
+.tp-logo-2 {
+  text-transform: uppercase;
+  color: var(--tp-color-warning-icon);
+}
+
+.tp-logo-3 {
+  text-transform: uppercase;
+  color: var(--tp-color-success-icon);
+}
+
+.tp-logo-4 {
+  text-transform: uppercase;
+  color: hsl(200, 100%, 30%);
+}
+
+.tp-logo-5 {
+  text-transform: uppercase;
+  color: hsl(300, 100%, 30%);
+}
+
+
+/**
 Page
 **/
 .tp-page__container {

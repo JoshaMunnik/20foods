@@ -17,6 +17,10 @@ function timestamped(string $filename): string
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta
+      name="description"
+      content="A web app to help you to reach the goal of eating 20 different food items each week."
+    />
     <title>20 foods | loading</title>
     <link rel="icon" type="image/png" href="favicon.png"/>
     <link rel="stylesheet" href="<?= timestamped('css/main.css') ?>"/>
@@ -175,7 +179,16 @@ function timestamped(string $filename): string
 
       <section id="home-page" class="tp-page tp-page--is-hidden">
         <header class="tp-header__container">
-          <h2 class="tp-header__title">20 <span class="tp-text--is-success">Foods</span></h2>
+          <h2 class="tp-header__title">
+            <span class="tp-logo">
+              <span class="tp-logo-20">20</span>
+              <span class="tp-logo-1">F</span>
+              <span class="tp-logo-2">o</span>
+              <span class="tp-logo-3">o</span>
+              <span class="tp-logo-4">d</span>
+              <span class="tp-logo-5">s</span>
+            </span>
+          </h2>
           <div class="tp-header__filler"></div>
           <button
             id="history-button"
@@ -323,6 +336,6 @@ function timestamped(string $filename): string
       </section>
 
     </main>
-    <script src="<?= timestamped('js/bundle.js') ?>" type="module"></script>
+    <script src="<?= timestamped('js/bundle.min.js') ?>" type="module"></script>
   </body>
 </html>
