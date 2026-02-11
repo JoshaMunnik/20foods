@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "outDir": "../public_html/js/",
+    "sourceMap": true,
+    "module": "es2022",
+    "target": "es2022",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "es2022",
+      "dom"
+    ],
+    "noImplicitAny": true,
+    "strict": true,
+    // Enables all strict type checking options
+    "strictNullChecks": true,
+    // Ensure 'null' and 'undefined' are handled explicitly
+    "strictFunctionTypes": true,
+    // Ensure function parameter compatibility
+    "strictBindCallApply": true,
+    // Strictly check the 'bind', 'call', and 'apply' methods
+    "strictPropertyInitialization": true,
+    // Ensure class properties are initialized
+    "noImplicitThis": true,
+    // Raise error on 'this' expressions with implied 'any' type
+    "alwaysStrict": true,
+    // Parse in strict mode and emit "use strict" for every file
+    "noImplicitReturns": true,
+    // Ensure functions always return a value
+    "noFallthroughCasesInSwitch": true,
+    // Prevent unintended fall-through in switch statements
+    "noPropertyAccessFromIndexSignature": true,
+    // Ensure index signatures are not accessed using dot notation
+    "useUnknownInCatchVariables": true
+    // Use 'unknown' for catch variables to force explicit type checks
+  },
+  "exclude": [
+    "node_modules",
+    "vendor",
+  ]
+}

@@ -1,0 +1,403 @@
+/**
+ * Configuration
+ */
+:root {
+  --tp-color-text: hsl(0, 0%, 10%);
+  --tp-color-label-text: hsl(0, 0%, 40%);
+  --tp-color-background: hsl(0, 0%, 100%);
+  --tp-color-border: hsl(0, 0%, 60%);
+  --tp-color-code-background: hsl(0, 0%, 96%);
+  --tp-color-icon: hsl(0, 0%, 50%);
+  --tp-color-button-background: hsl(0, 0%, 90%);
+  --tp-color-button-text: var(--tp-color-text);
+  --tp-color-button-icon: var(--tp-color-icon);
+  --tp-color-button-border: var(--tp-color-border);
+  --tp-color-button-disabled-background: hsl(0, 0%, 96%);
+  --tp-color-button-disabled-text: hsl(0, 0%, 70%);
+  --tp-color-button-disabled-icon: var(--tp-color-button-disabled-text);
+  --tp-color-message-background: hsl(0, 0%, 96%);
+  --tp-color-table-odd: hsl(0, 0%, 98%);
+  --tp-color-table-border: hsl(0, 0%, 90%);
+  --tp-color-popup-border: hsl(0, 0%, 50%);
+  --tp-color-danger-text: hsl(0, 50%, 35%);
+  --tp-color-danger-icon: hsl(0, 50%, 45%);
+  --tp-color-danger-background: hsl(10, 60%, 90%);
+  --tp-color-success-text: hsl(120, 50%, 35%);
+  --tp-color-success-icon: hsl(120, 50%, 45%);
+  --tp-color-success-background: hsl(120, 60%, 90%);
+  --tp-color-warning-text: hsl(39, 100%, 25%);
+  --tp-color-warning-icon: hsl(39, 100%, 35%);
+  --tp-color-warning-background: hsl(39, 100%, 85%);
+  --tp-color-focus: hsl(210, 100%, 50%);
+  --tp-gap-small: 0.4rem;
+  --tp-gap-normal: 0.75rem;
+  --tp-gap-large: 2rem;
+  --tp-gap-very-large: 3rem;
+  --tp-gap-form: 1.25rem;
+  --tp-gap-dialog: 2.5rem;
+  --tp-border-radius: 5px;
+
+  /* Using a 24x24 viewbox, the bar thickness is 8px (1/3rd); the color is set to success icon */
+  --svg-heavy-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='hsl(120, 50%25, 45%25)' d='M9.5 2h5v7.5H22v5h-7.5V22h-5v-7.5H2v-5h7.5V2z'/%3E%3C/svg%3E");
+
+  /* This uses the exact same thickness (8px) and horizontal width as the plus; the color is set to danger icon */
+  --svg-heavy-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='hsl(0, 50%25, 45%25)' d='M2 9.5h20v5H2z'/%3E%3C/svg%3E");
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+*/
+
+/**
+Tags
+ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  background: var(--tp-color-background);
+  color: var(--tp-color-text);
+  line-height: 1.3;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--tp-color-button-background);
+}
+
+button {
+  font-size: 1em;
+}
+
+p, ul {
+  margin: 0;
+  max-width: 60em;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+a {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+hr {
+  color: var(--tp-color-border);
+}
+
+form {
+  width: 100%;
+}
+
+code {
+  background-color: var(--tp-color-code-background);
+  display: inline-block;
+  padding: 0 0.2rem;
+}
+
+/**
+Header
+**/
+.tp-header__container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--tp-gap-small) var(--tp-gap-normal);
+  border-bottom: 1px solid var(--tp-color-border);
+  gap: var(--tp-gap-small);
+}
+
+.tp-header__filler {
+  flex: 1;
+}
+
+/**
+Page
+**/
+.tp-page__container {
+  position: relative;
+  min-width: 320px;
+  max-width: 512px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  background: var(--tp-color-background);
+  background: url('../img/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.tp-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tp-page--is-hidden {
+  display: none;
+}
+
+.tp-page__content {
+  padding: var(--tp-gap-normal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--tp-gap-normal);
+}
+
+.tp-page__content--has-large-gap {
+  padding: var(--tp-gap-large) var(--tp-gap-normal);
+  gap: var(--tp-gap-large);
+}
+
+.tp-page__content--is-scrollable {
+  overflow-y: auto;
+  padding: var(--tp-gap-normal);
+  min-height: 0;
+}
+
+.tp-page__content--is-centered {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/**
+Buttons
+**/
+
+.tp-button {
+  --tp-icon-color: var(--tp-color-icon);
+  --tp-background-color: var(--tp-color-button-background);
+  --tp-text-color: var(--tp-color-button-text);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tp-gap-small);
+  padding: 0.5em 0.7em;
+  background-color: var(--tp-background-color);
+  color: var(--tp-text-color);
+  border-radius: var(--tp-border-radius);
+  cursor: pointer;
+  border: none;
+}
+
+.tp-button--is-danger {
+  --tp-background-color: var(--tp-color-danger-background);
+  --tp-text-color: var(--tp-color-danger-text);
+  --tp-icon-color: var(--tp-color-danger-icon);
+}
+
+.tp-button--is-success {
+  --tp-background-color: var(--tp-color-success-background);
+  color: var(--tp-color-success-text);
+  --tp-icon-color: var(--tp-color-success-icon);
+}
+
+.tp-button--is-warning {
+  --tp-background-color: var(--tp-color-warning-background);
+  --tp-text-color: var(--tp-color-warning-text);
+  --tp-icon-color: var(--tp-color-warning-icon);
+}
+
+.tp-button--is-header-icon {
+  color: var(--tp-icon-color);
+}
+
+.tp-button--is-header {
+}
+
+.tp-button--is-big-icon {
+  font-size: 2rem;
+  color: var(--tp-icon-color);
+}
+
+.tp-button--is-page {
+}
+
+.tp-buttons__container {
+  display: flex;
+  gap: var(--tp-gap-small);
+  flex-direction: row;
+}
+
+.tp-buttons__container--is-centered {
+  justify-content: center;
+}
+
+.tp-button:disabled {
+  background-color: var(--tp-color-button-disabled-background);
+  color: var(--tp-color-button-disabled-text);
+  --tp-icon-color: var(--tp-color-button-disabled-icon);
+  cursor: default;
+}
+
+/**
+Layout
+**/
+.tp-layout__column {
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+Grid
+**/
+.tp-grid {
+  display: grid;
+  column-gap: var(--tp-gap-normal);
+  row-gap: var(--tp-gap-small);
+  align-items: center;
+}
+
+.tp-grid__child-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  margin-top: calc(var(--tp-gap-small) - var(--tp-gap-normal));
+  column-gap: var(--tp-gap-small);
+  align-items: center;
+  border-radius: var(--tp-border-radius);
+  border: 1px solid var(--tp-color-button-background);
+  padding: var(--tp-gap-small);
+}
+
+.tp-grid--has-two-columns-expand-second {
+  grid-template-columns: auto 1fr;
+}
+
+.tp-grid--has-three-columns-expand-first {
+  grid-template-columns: 1fr auto auto;
+}
+
+.tp-grid--has-three-columns-expand-second {
+  grid-template-columns: auto 1fr auto;
+}
+
+.tp-grid--align-baseline {
+  align-items: baseline;
+}
+
+.tp-grid__column--align-end {
+  justify-self: end;
+}
+
+.tp-grid__label {
+  justify-self: end;
+  color: var(--tp-color-label-text);
+}
+
+/**
+Text
+**/
+.tp-text {
+}
+
+.tp-text--is-large {
+  font-size: 1.60rem;
+  font-weight: bold;
+}
+
+.tp-text--is-medium {
+  font-size: 1.15rem;
+}
+
+.tp-text--is-small {
+  font-size: 0.70rem;
+}
+
+.tp-text--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tp-text--is-label {
+  color: var(--tp-color-label-text);
+}
+
+.tp-text--align-end {
+  text-align: end;
+}
+
+.tp-text--is-success {
+  color: var(--tp-color-success-text);
+}
+
+/**
+Form
+**/
+.tp-form__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.tp-form__label {
+
+}
+
+.tp-form__input {
+  background-color: var(--tp-color-button-background);
+  border: none;
+  border-radius: var(--tp-border-radius);
+  padding: var(--tp-gap-small);
+  font-size: 1rem;
+  width: 50%;
+}
+
+.tp-form__multiline {
+  background-color: var(--tp-color-button-background);
+  border: none;
+  border-radius: var(--tp-border-radius);
+  padding: var(--tp-gap-small);
+  font-size: 1rem;
+  width: 100%;
+  min-height: 3em;
+}
+
+.tp-form__select {
+  background-color: var(--tp-color-button-background);
+  border: none;
+  border-radius: var(--tp-border-radius);
+  padding: var(--tp-gap-small);
+  font-size: 1rem;
+}
+
+/**
+Utilities
+**/
+.tp-hidden {
+  display: none;
+}
+
+/**
+ SVG icons
+**/
+.tp-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.tp-icon__plus {
+  background-image: var(--svg-heavy-plus);
+}
+
+.tp-icon__minus {
+  background-image: var(--svg-heavy-minus);
+}
